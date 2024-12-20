@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
             if (!currentExpression.isEmpty()) {
                 try {
                     currentExpression = currentExpression.substring(0, currentExpression.length() - 1);
-                    String splitted[] = currentExpression.split("(?<=[\\d.])(?=[+\\-×÷])|(?<=[+\\-×÷])(?=[\\d.])");
-                    String lastIndex = splitted[splitted.length-1].replaceAll(",","");
+                    String[] splitNew = currentExpression.split("(?<=[\\d.])(?=[+\\-×÷])|(?<=[+\\-×÷])(?=[\\d.])");
+                    String lastIndex = splitNew[splitNew.length-1].replaceAll(",","");
                     lastIndex = calcFunc.formatResult(Double.parseDouble(lastIndex));
-                    splitted[splitted.length-1] = lastIndex;
-                    currentExpression = String.join("",splitted);
+                    splitNew[splitNew.length-1] = lastIndex;
+                    currentExpression = String.join("", splitNew);
                     textViewSonuc.setText(currentExpression);
                 } catch (NumberFormatException e) {
                     if (!currentExpression.isEmpty()) {
